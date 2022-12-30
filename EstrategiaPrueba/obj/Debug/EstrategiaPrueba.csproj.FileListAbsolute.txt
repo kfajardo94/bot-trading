@@ -3,3 +3,7 @@ C:\Users\NITRO 5\Desktop\AMP\AMP Quantower\Settings\Scripts\Strategies\Estrategi
 C:\Users\NITRO 5\source\repos\EstrategiaPrueba\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.csproj.CoreCompileInputs.cache
 C:\Users\NITRO 5\source\repos\EstrategiaPrueba\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.dll
 C:\Users\NITRO 5\source\repos\EstrategiaPrueba\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.pdb
+C:\Users\NITRO 5\Documents\Desarrollos\Trading\EstrategiaPrueba\bot-trading\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.csproj.AssemblyReference.cache
+C:\Users\NITRO 5\Documents\Desarrollos\Trading\EstrategiaPrueba\bot-trading\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.csproj.CoreCompileInputs.cache
+C:\Users\NITRO 5\Documents\Desarrollos\Trading\EstrategiaPrueba\bot-trading\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.dll
+C:\Users\NITRO 5\Documents\Desarrollos\Trading\EstrategiaPrueba\bot-trading\EstrategiaPrueba\obj\Debug\EstrategiaPrueba.pdb

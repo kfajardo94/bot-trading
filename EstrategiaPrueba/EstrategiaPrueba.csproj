@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\Desktop\AMP\AMP Quantower\Settings\Scripts\Strategies\EstrategiaPrueba\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\Desktop\AMP\AMP Quantower\Settings\Scripts\Strategies\EstrategiaPrueba\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,15 +39,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TradingPlatform.BusinessLayer">
-      <HintPath>..\..\..\..\Desktop\AMP\AMP Quantower\TradingPlatform\v1.126.5\bin\TradingPlatform.BusinessLayer.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Desktop\AMP\AMP Quantower\TradingPlatform\v1.126.5\bin\TradingPlatform.BusinessLayer.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="EstrategiaPrueba.cs" />
     <Compile Include="IHistoricalData.cs" />
-    <Compile Include="ObjetosArchivo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
