@@ -3,6 +3,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartProgram>C:\Users\NITRO 5\Desktop\AMP\AMP Quantower\TradingPlatform\v1.126.5\Console.StarterNew.exe</StartProgram>
     <StartAction>Program</StartAction>
-    <StartArguments>--address 127.0.0.1 --port 54223</StartArguments>
+    <StartArguments>--address 127.0.0.1 --port 57101</StartArguments>
   </PropertyGroup>
 </Project>

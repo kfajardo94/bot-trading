@@ -24,6 +24,10 @@ namespace EstrategiaPrueba
         [InputParameter("Account", 20)]
         public Account account;
 
+        private MediasMovilesFajardo.SMA20 sm20 = new MediasMovilesFajardo.SMA20();
+
+        private Indicator RSI = Core.Indicators.BuiltIn.RSI(14, PriceType.Open, RSIMode.Exponential, MaMode.LWMA, 1);
+            
         double precio = 11070;
 
         public override string[] MonitoringConnectionsIds => new string[] { this.symbol?.ConnectionId };
@@ -67,33 +71,42 @@ namespace EstrategiaPrueba
                 this.symbol.NewLast += SymbolOnNewLast;
             }
 
-            
-            DateTime fechaActual = DateTime.Now;
-            //fechaActual = new DateTime(
-            //fechaActual.Year,
-            //fechaActual.Month,
-            //fechaActual.Day,
-            //fechaActual.Hour-5,
-            //fechaActual.Minute,
-            //fechaActual.Second,
-            //fechaActual.Millisecond,
-            //fechaActual.Kind);
+
+            DateTime fechaActual = DateTime.UtcNow;
+            int valor = ((int) fechaActual.DayOfWeek)-2;
+            LogInfo("valor1: "+valor);
+            fechaActual = new DateTime(
+            fechaActual.Year,
+            fechaActual.Month,
+            fechaActual.Day-valor,
+            fechaActual.Hour,
+            55,
+            0,
+            0);
 
 
-            DateTime fechaInicioSemana = DateTime.Now;
-            //int valor = ((int)fechaInicioSemana.DayOfWeek);
+            DateTime fechaInicioSemana = DateTime.UtcNow;
+            valor = ((int)fechaInicioSemana.DayOfWeek)-2;
+            LogInfo("valor2: "+valor);
             fechaInicioSemana = new DateTime(
                 fechaInicioSemana.Year,
                 fechaInicioSemana.Month,
-                fechaInicioSemana.Day-1,
-                17,
+                fechaInicioSemana.Day-valor,
+                fechaInicioSemana.Hour,
                 0,
                 0,
-                0,
-                fechaInicioSemana.Kind);
+                0);
 
+            LogInfo("fecha inicio: "+ fechaInicioSemana);
+            LogInfo("fecha fin: "+fechaActual);
+            int horas1 = fechaActual.Minute;
+            int horas2 = fechaInicioSemana.Minute;
 
-            getHistoric(fechaInicioSemana, fechaActual);
+            LogInfo("1: "+horas1);
+            LogInfo("2: "+horas2);
+            LogInfo("3: "+(horas1 - horas2));
+
+            getHistoricoBarras(fechaInicioSemana, fechaActual);
 
             // Add your code here
 
@@ -149,10 +162,8 @@ namespace EstrategiaPrueba
         private void SymbolOnNewLast(Symbol symbol, Last last)
         {
             // Add your code here
-            
             if (last.Price > precio)
             {
-                
                 //LogInfo("If: " + last.Price + " - " + precio);
                 //Core.Instance.PlaceOrder(this.symbol, this.account, Side.Sell, TimeInForce.Day);
             } else
@@ -162,27 +173,35 @@ namespace EstrategiaPrueba
             }
         }
 
-        private void LogInfo(Object valor)
-        {
-            Log(valor.ToString(), StrategyLoggingLevel.Info);
-        }
+        
 
-        public void getHistoric(DateTime fechaInicio, DateTime fechaActual)
+        public void getHistoricoBarras(DateTime fechaInicio, DateTime fechaActual)
         {
 
-            int count = 0;
-            HistoricalData historicalData = this.symbol.GetHistory(Period.MIN1, fechaInicio, fechaActual);
+            
+            HistoricalData historicalData = this.symbol.GetHistory(Period.MIN5, fechaInicio, fechaActual);
+            //LogInfo("info: "+historicalData.Count);
             for (int i = 0; i < historicalData.Count; i++)
             {
                 HistoryItemBar hIB = (HistoryItemBar) historicalData[i];
                 if (i < 100)
                 {
-                    //LogInfo("i: "+ i + " - " +hIB);
+                //    LogInfo("i: "+ i + " - " +hIB);
+                }
+
+                if (i >= 100)
+                {
+                  //  LogInfo("i2: "+ i + " - " +hIB);
                 }
 
             }
 
 
+        }
+
+        private void LogInfo(Object valor)
+        {
+            Log(valor.ToString(), StrategyLoggingLevel.Info);
         }
 
     }
